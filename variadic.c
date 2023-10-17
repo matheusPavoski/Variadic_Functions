@@ -6,7 +6,7 @@
 /*   By: mmaschio <mmaschio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:13:05 by mmaschio          #+#    #+#             */
-/*   Updated: 2023/10/17 13:52:03 by mmaschio         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:55:42 by mmaschio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ float	average(int n, ...)
 	va_list	ap;
 
 	/* 'ap' stands for argument pointer.
-		This pointer will point to the 7 */
+		This pointer will point to the 3 */
 	float total; // Variable to store the sum of the numbers
 	int i;       // Loop counter
 	va_start(ap, n);
@@ -47,10 +47,10 @@ int	main(void)
 	float	average_age;
 
 	/*
-		The 7 is a flag that represents the 'n' in our function average().
+		The 3 is a flag that represents the 'n' in our function average().
 		It is the number of arguments we are going to read to calculate the average.
 	*/
-	average_age = average(7, 88, 29, 30, 67, 51, 14, 72);
+	average_age = average(3, 10, 22, 13);
 	// Call the average function
 	printf("The average age of those 7 people is: %f\n", average_age);
 	// Print the result
