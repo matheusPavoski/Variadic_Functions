@@ -60,4 +60,4 @@ Em seguida, execute o programa gerado:
 ./exemplo
 </code>
 
-[Read this README in English](./README_EN.md)
+[🌐Read this README in English](./README_EN.md)

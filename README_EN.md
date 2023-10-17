@@ -61,4 +61,4 @@ Then, run the generated program:
 ./example
 </code>
 
-[Leia este README em Português](./README.md)
+[🇧🇷Leia este README em Português](./README.md)
