@@ -21,22 +21,27 @@ A melhor maneira de entender as funções variádicas é através de exemplos pr
 #include &lt;stdio.h&gt;
 #include &lt;stdarg.h&gt;
 
-int soma(int num_args, ...) {
+int sum(int num_args, ...) 
+{
     va_list args;
     
     int total = 0;
     va_start(args, num_args);
 
-    for (int i = 0; i < num_args; i++) {
-        total += va_arg(args, int);
-    }
+   int i = 0;
+   while (i < num_args)
+   {
+    total += va_arg(args, int);
+    i++;
+  }
 
     va_end(args);
 
     return total;
 }
 
-int main() {
+int main() 
+{
     int total = sum(4, 10, 20, 30, 40);
     printf("The sum is: %d\n", total);
     return 0;
