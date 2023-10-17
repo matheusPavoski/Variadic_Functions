@@ -35,6 +35,12 @@ int soma(int num_args, ...) {
 
     return total;
 }
+
+int main() {
+    int total = sum(4, 10, 20, 30, 40);
+    printf("The sum is: %d\n", total);
+    return 0;
+}
 </code></pre>
 Neste exemplo, a função soma aceita um número variável de argumentos inteiros e retorna a soma deles.
 
@@ -49,3 +55,4 @@ Em seguida, execute o programa gerado:
 ./exemplo
 </code>
 
+[Read this README in English](./README_EN.md)
