@@ -1,15 +1,51 @@
 # Variadic_Functions
 
-Este repositório funciona como um recurso de aprendizado para entender funções variádicas na programação em C. Ele inclui exemplos práticos que demonstram o uso da biblioteca stdarg.h e funções essenciais como va_start, va_arg, etc. Explore o código para adquirir proficiência no tratamento de funções com um número variável de argumentos, uma funcionalidade poderosa na programação em C.
+Este repositório serve como um recurso de aprendizado para compreender funções variádicas na programação em C. Ele inclui exemplos práticos que demonstram o uso da biblioteca `stdarg.h` e funções essenciais como `va_start`, `va_arg`, etc. Explore o código para adquirir proficiência no tratamento de funções com um número variável de argumentos, uma funcionalidade poderosa na programação em C.
 
-## Introduction
+## Introdução
 
-Uma função variádica tem um conceito bem simples de se entender: ela é uma função que aceita uma quantidade x (variável) de parâmetros. Mas vamos entender melhor como isso funciona pois até agora o que sabemos é que toda função precisa ser precisamente definida para funcionar, ou seja, o protótipo da função define claramente para o compilador o que ele deve interpretar. Se pensarmos na função <strong>write()</strong>, por exemplo, sabemos que ela precisa de 3 argumentos para funcionar: o descritor de arquivo para onde desejamos escrever os dados, um ponteiro para área da memória que contém os dados que queremos escrever e o número de bytes que queremos escrever a partir do buffer. Como você pode perceber o protótipo da função write é claramente definido e ela não vai funcionar se não passarmos exatamente esses três parâmetros.
-Pensando nisso, como será que a <strong>printf</strong> funciona? Nós sabemos que podemos passar a quantidade de parâmetros que quisermos para dentro dela mas não sabemos como isso funciona. Para começar a desvendar esse mistério nós vamos precisar entender uma nova biblioteca e alguns conceitos que são definidos nela: a <stdarg.h>. 
-Essa biblioteca contém tudo o que precisamos para poder usar as seguintes funções variádicas: <strong>va_start</strong>, <strong>va_arg</strong>, <strong>va_copy</strong> e <strong>va_end</strong>. Se olharmos o manual da biblioteca (man stdarg), vamos perceber que existem funções que podem ser chamadas com um número indefinido de parâmetros que podem ser dos mais diversos tipos de dados. Incluir a biblioteca <stdarg.h> declara um tipo chamado <strong>va_list</strong> e define 3 macros para percorrer uma lista de argumentos cuja a quantidade e os tipos são indefinidos na hora da chamada da função.
-Ou seja, a bibilioteca <stdarg.h> contém um tipo específico de dado que chamamos de <strong>va_list</strong> e três macros que nos permitem trabalhar com funções variádicas. Observe:
+Funções variádicas aceitam uma quantidade variável de parâmetros, o que é um conceito fundamental para entender. Até agora, sabemos que toda função precisa ter um número definido de parâmetros, mas como a função `printf` aceita um número arbitrário de argumentos? A resposta está na biblioteca `stdarg.h`. Ela contém as funções `va_start`, `va_arg`, `va_copy` e `va_end`, que nos permitem trabalhar com funções variádicas.
+
+### Biblioteca `stdarg.h`
+
+A inclusão da biblioteca `stdarg.h` declara um tipo chamado `va_list` e define três macros para percorrer uma lista de argumentos cuja quantidade e tipos são indefinidos na chamada da função. A biblioteca `stdarg.h` é uma ferramenta essencial para lidar com funções que aceitam um número variável de argumentos.
 
 <p align="center">
   <img src="Screenshot from 2023-10-17 14-00-09.png" alt="man stdarg">
 </p>
+
+## Exemplos de Uso
+
+A melhor maneira de entender as funções variádicas é através de exemplos práticos. A seguir, apresentamos um exemplo simples de como usar as funções `va_start` e `va_arg`:
+<pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+int soma(int num_args, ...) {
+    va_list args;
+    
+    int total = 0;
+    va_start(args, num_args);
+
+    for (int i = 0; i < num_args; i++) {
+        total += va_arg(args, int);
+    }
+
+    va_end(args);
+
+    return total;
+}
+</code></pre>
+Neste exemplo, a função soma aceita um número variável de argumentos inteiros e retorna a soma deles.
+
+## Como Compilar e Executar
+Para compilar o exemplo acima, utilize um compilador C, como o gcc, da seguinte forma:
+<code>
+gcc exemplo.c -o exemplo
+</code>
+Em seguida, execute o programa gerado:
+
+<code>
+./exemplo
+</code>
 
